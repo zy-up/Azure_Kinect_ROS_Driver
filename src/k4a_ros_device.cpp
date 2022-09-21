@@ -187,7 +187,7 @@ K4AROSDevice::K4AROSDevice(const NodeHandle& n, const NodeHandle& p)
       }
       catch (exception)
       {
-        ROS_ERROR_STREAM("Failed to open K4A device at index " << i);
+        ROS_INFO_STREAM("Failed to open K4A device at index " << i);
         continue;
       }
 
@@ -1016,9 +1016,10 @@ void K4AROSDevice::framePublisherThread()
     {
       if (!k4a_device_.get_capture(&capture, waitTime))
       {
-        ROS_FATAL("Failed to poll cameras: node cannot continue.");
-        ros::requestShutdown();
-        return;
+        continue;
+        // ROS_FATAL("Failed to poll cameras: node cannot continue.");
+        // ros::requestShutdown();
+        // return;
       }
       else
       {
@@ -1306,7 +1307,7 @@ void K4AROSDevice::framePublisherThread()
       }
     }
 
-    if (loop_rate.cycleTime() > loop_rate.expectedCycleTime())
+    if (loop_rate.cycleTime() > loop_rate.expectedCycleTime()*1.15)
     {
       ROS_WARN_STREAM_THROTTLE(10, "Image processing thread is running behind."
                                        << std::endl
