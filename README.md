@@ -6,6 +6,10 @@ This repository uses the [Azure Kinect Sensor SDK](https://github.com/microsoft/
 
 [![Build Status](https://dev.azure.com/ms/Azure_Kinect_ROS_Driver/_apis/build/status/microsoft.Azure_Kinect_ROS_Driver?branchName=melodic)](https://dev.azure.com/ms/Azure_Kinect_ROS_Driver/_build/latest?definitionId=166&branchName=melodic)
 
+## Modify
+ - Enhanced support for multiple cameras
+ - Reduce the error sensitivity of the program
+
 ## Features
 
 This ROS node outputs a variety of sensor data, including:
