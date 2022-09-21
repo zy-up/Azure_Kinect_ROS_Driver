@@ -1307,13 +1307,13 @@ void K4AROSDevice::framePublisherThread()
       }
     }
 
-    if (loop_rate.cycleTime() > loop_rate.expectedCycleTime()*1.15)
-    {
-      ROS_WARN_STREAM_THROTTLE(10, "Image processing thread is running behind."
-                                       << std::endl
-                                       << "Expected max loop time: " << loop_rate.expectedCycleTime() << std::endl
-                                       << "Actual loop time: " << loop_rate.cycleTime() << std::endl);
-    }
+    // if (loop_rate.cycleTime() > loop_rate.expectedCycleTime()*1.15)
+    // {
+    //   ROS_WARN_STREAM_THROTTLE(10, "Image processing thread is running behind."
+    //                                    << std::endl
+    //                                    << "Expected max loop time: " << loop_rate.expectedCycleTime() << std::endl
+    //                                    << "Actual loop time: " << loop_rate.cycleTime() << std::endl);
+    // }
 
     ros::spinOnce();
     loop_rate.sleep();
